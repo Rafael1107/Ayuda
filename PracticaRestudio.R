@@ -1,5 +1,6 @@
 ########################### BASICO ############################################
 rm(list=ls()) #Limpia todo el environment
+rm(Variable) ##Borrar una variable especifica
 contenido <- c(2,5,6,9,8)
 nombres<-c("Agua","rocas","fuego","alcohol","nada")
 names(contenido)<- nombres #colocar los nombres a CONTENIDO con los elementos de NOMBRES
@@ -62,3 +63,23 @@ Suma<-function(a,b){
 } ##Esto es una funcion simple donde se establecen variables y despues se especifica como interactuan entre ellas
 #despues simplemente se especifican los numeros de las variables para que te entrege un resultado
 Suma(4,4) ##Entrega el resultado en remplazar la primera variable por 4 y la segunda por 4
+# Ejercicios Lista
+listaDeNumeros<-c(lista2,listaDeNumeros)## agrega en conjunto los elementos de las variables, en el orden que se especifica
+lista2<-list("Juan","Pedro","Andrea","Andes","Aymara","Mundo")
+listaDeNumeros[c(5,8)]<-listaDeNumeros[c(8,5)]### solucion opcional para el problema de cambiar orden de datos de la lista
+sapo<-listaDeNumeros[5]
+listaDeNumeros[5]<-listaDeNumeros[8]
+listaDeNumeros[8]<-sapo ###manera de realizar el swap sencillamente
+
+
+
+
+
+
+
+
+
+
+
+
+

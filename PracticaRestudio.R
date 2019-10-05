@@ -1,4 +1,5 @@
 ########################### BASICO ############################################
+
 rm(list=ls()) #Limpia todo el environment
 rm(Variable) ##Borrar una variable especifica
 contenido <- c(2,5,6,9,8)
@@ -14,6 +15,7 @@ contenido["Agua"] # Mostrar los datos segun el nombre de la fila o columna de un
 contenido[c(1,2)] #mostrar los numeros en la posicion 1 y 2 
 contenido[1]
 ############################ BASICO MATRICES #########################################
+
 matrix(ganancias,nrow=1) #crea una matriz con los datos de GANANCIA y colocalos en una fila
 matrix1<-cbind(ganancias,gastos) # crea una matriz con los datos de ganancia y gastos juntos en columnas(col).
 rbind(ganancias,gastos) #Crea una matriz con los datos de ganancia y gastos juntos en filas(rows)
@@ -26,6 +28,7 @@ matrix2[1,4] #muestra el dato 1,4 donde 1 es fila y 4 es columna de MATRIX2
 nombres2<-c("dato1","dato2","dato3","dato4")
 
 ################################# MATRICES  ##########################################
+
 matrix2[1,] #muestra los datos de la fila(row) 1 de la MATRIX2 
 matrix2[,2]#Muestra los datos de la columna(col) 2 de la MTRIX2
 matrix2[3]# muestra el dato numero 3 de la MATRIX2 contando columna por columna
@@ -38,6 +41,7 @@ matrix2 * matrix2# multiplicacion de matrices es hecha numero por numero algebra
 matrix2 * c(1,2,3)# multiplica la primera fila por 1 la segunda por dos y asi sucesivamente
 
 ################################# FACTORS##############################################
+
 blood<-c("B","AB","O","A","O","O","A","B")
 blood_factor<-factor(blood)#Crea el factor BLOOD y muestra los niveles
 str(blood_factor)# muestra los niveles y los numeros asignados a cada uno de los caracteres
@@ -48,7 +52,9 @@ blood_factor3<-factor(blood,levels=c("O","A","B","AB"),labels=c("BT_O","BT_A","B
 tshirt<-c("M","L","S","S","L","M","L","M")
 tshirt_factor<-factor(tshirt,ordered=TRUE,levels=c("S","M","L"))#Crea el factor e inmediatamente le ingresa que uno es mayor que otro o el orden.
 tshirt_factor[1]<tshirt_factor[2]# probando si el orden fue realizado correctamente
+
 ####################################### LISTAS######################################################
+
 listaDeNumeros <- list(2,5,6,2,1,5,6,10,11,20,15)# Crea una lista de numeros y pueden ser manipulados de una mejor manera
 listaDeNumeros[20]#Muestra el numero en la posicion 20 de la lista de numeros
 #Las listas de numeros no se les pueden aplicar ecuaciones u operaciones algebraicas, para esto existe lo siguiente
@@ -63,23 +69,38 @@ Suma<-function(a,b){
 } ##Esto es una funcion simple donde se establecen variables y despues se especifica como interactuan entre ellas
 #despues simplemente se especifican los numeros de las variables para que te entrege un resultado
 Suma(4,4) ##Entrega el resultado en remplazar la primera variable por 4 y la segunda por 4
-# Ejercicios Lista
-listaDeNumeros<-c(lista2,listaDeNumeros)## agrega en conjunto los elementos de las variables, en el orden que se especifica
+
+############################## Ejercicios Lista #############################################
+
+listaDeNumeros<-list(1:5)## Agrega en conjunto los elementos de las variables, en el orden que se especifica
 lista2<-list("Juan","Pedro","Andrea","Andes","Aymara","Mundo")
-listaDeNumeros[c(5,8)]<-listaDeNumeros[c(8,5)]### solucion opcional para el problema de cambiar orden de datos de la lista
-sapo<-listaDeNumeros[5]
-listaDeNumeros[5]<-listaDeNumeros[8]
-listaDeNumeros[8]<-sapo ###manera de realizar el swap sencillamente
+########################## Manera de realizar el swap sencillamente#################################
 
+apio<-listaDeNumeros[5]
+listaDeNumeros[5]<-listaDeNumeros[8]###manera de realizar el swap sencillamente
+listaDeNumeros[4]<-apio ###manera de realizar el swap sencillamente
 
+######################### Solucion opcional para el problema de cambiar orden de datos de la lista#######################
 
+listaDeNumeros[c(5,3)]<-listaDeNumeros[c(3,5)]
 
+######################### For = para secuencias ###############################
+##Buscando que un valor este en la lista
+listaDeNumeros<-list(5,4,3,2,1)
+encontrar<-7
 
+for (i in 1:length(listaDeNumeros)) {
+  if(listaDeNumeros[i]==encontrar) {
+    print("el elemento existe") 
+  }
+}
 
-
-
-
-
+for (u in 1:length(listaDeNumeros)){
+for (i in (1:(length(listaDeNumeros)-1))) {
+  if (unlist(listaDeNumeros[i])>unlist(listaDeNumeros[i+1])){
+    listaDeNumeros[c(i,i+1)]<-listaDeNumeros[c(i+1,i)]
+  }}
+  }
 
 
 

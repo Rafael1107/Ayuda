@@ -40,7 +40,7 @@ matrix2-c(1,2,3)#al restar un conjunto de numeros se aplica reciclaje y se resta
 matrix2 * matrix2# multiplicacion de matrices es hecha numero por numero algebraicamente y no de la otra manera
 matrix2 * c(1,2,3)# multiplica la primera fila por 1 la segunda por dos y asi sucesivamente
 
-################################# FACTORS##############################################
+################################# FACTORS ##############################################
 
 blood<-c("B","AB","O","A","O","O","A","B")
 blood_factor<-factor(blood)#Crea el factor BLOOD y muestra los niveles
@@ -53,10 +53,10 @@ tshirt<-c("M","L","S","S","L","M","L","M")
 tshirt_factor<-factor(tshirt,ordered=TRUE,levels=c("S","M","L"))#Crea el factor e inmediatamente le ingresa que uno es mayor que otro o el orden.
 tshirt_factor[1]<tshirt_factor[2]# probando si el orden fue realizado correctamente
 
-####################################### LISTAS######################################################
+####################################### LISTAS ######################################################
 
 listaDeNumeros <- list(2,5,6,2,1,5,6,10,11,20,15)# Crea una lista de numeros y pueden ser manipulados de una mejor manera
-listaDeNumeros[20]#Muestra el numero en la posicion 20 de la lista de numeros
+listaDeNumeros[20] #Muestra el numero en la posicion 20 de la lista de numeros
 #Las listas de numeros no se les pueden aplicar ecuaciones u operaciones algebraicas, para esto existe lo siguiente
 unlist(listaDeNumeros[5])#quita la caracteristica de lista para poder realizar operaciones
 listaDeNumeros[5]<-12 #Remplaza el dato numero 5 por 12 en las lista de numeros
@@ -74,6 +74,10 @@ Suma(4,4) ##Entrega el resultado en remplazar la primera variable por 4 y la seg
 
 listaDeNumeros<-list(1:5)## Agrega en conjunto los elementos de las variables, en el orden que se especifica
 lista2<-list("Juan","Pedro","Andrea","Andes","Aymara","Mundo")
+names(lista2)<-c(1,2,3,4,5,6) ## Colocar nombres a los datos de una lista
+lista2<-list(nombre1="juan",nombre2="pedro") #Asigna inmediatamente los titulos a los datos de la lista
+str(lista2) ## Muestra  los datos de una lista de una manera mas ordenada
+
 ########################## Manera de realizar el swap sencillamente#################################
 
 apio<-listaDeNumeros[5]
@@ -89,18 +93,20 @@ listaDeNumeros[c(5,3)]<-listaDeNumeros[c(3,5)]
 listaDeNumeros<-list(5,4,3,2,1)
 encontrar<-7
 
+################################### Identificar si un elemento se enncuentra en una lista#############
 for (i in 1:length(listaDeNumeros)) {
   if(listaDeNumeros[i]==encontrar) {
     print("el elemento existe") 
   }
 }
-
+ ################################# Ordenar de mayor a menor una vareable################################
 for (u in 1:length(listaDeNumeros)){
 for (i in (1:(length(listaDeNumeros)-1))) {
   if (unlist(listaDeNumeros[i])>unlist(listaDeNumeros[i+1])){
     listaDeNumeros[c(i,i+1)]<-listaDeNumeros[c(i+1,i)]
   }}
-  }
+}
+
 
 
 

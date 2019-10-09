@@ -56,12 +56,18 @@ tshirt_factor[1]<tshirt_factor[2]# probando si el orden fue realizado correctame
 ####################################### LISTAS ######################################################
 
 listaDeNumeros <- list(2,5,6,2,1,5,6,10,11,20,15)# Crea una lista de numeros y pueden ser manipulados de una mejor manera
-listaDeNumeros[20] #Muestra el numero en la posicion 20 de la lista de numeros
+listaDeNumeros[20]#Muestra el numero en la posicion 20 de la lista de numeros
 #Las listas de numeros no se les pueden aplicar ecuaciones u operaciones algebraicas, para esto existe lo siguiente
-unlist(listaDeNumeros[5])#quita la caracteristica de lista para poder realizar operaciones
+unlist(listaDeNumeros[1])#quita la caracteristica de lista para poder realizar operaciones
+listaDeNumeros[[1]] ##Extrae el dato numero uno e inmediatamente lo extrae de la lista
+listaDeNumeros[[c(1,2)]] ## tomara la primerea lista de la lista general y obtendra el segundo dato de ella.
 listaDeNumeros[5]<-12 #Remplaza el dato numero 5 por 12 en las lista de numeros
 length(listaDeNumeros) #Muestra el largo de un vector o lista
 valorInicial : valorFinal #Conjunto de numeros desde 1 hasta el 5 es 1:5
+names(lista2)<-c(1,2,3,4,5,6) ## Colocar nombres a los datos de una lista
+lista2<-list(nombre1="juan",nombre2="pedro") #Asigna inmediatamente los titulos a los datos de la lista
+str(lista2) ## Muestra  los datos de una lista de una manera mas ordenada
+
 for(i in 1 : 100) {
   print(paste("cuento ",i," misisipis")) } ##Muestra los numeros remplazando i como los numeros del 1 al 100
 Suma<-function(a,b){
@@ -74,9 +80,6 @@ Suma(4,4) ##Entrega el resultado en remplazar la primera variable por 4 y la seg
 
 listaDeNumeros<-list(1:5)## Agrega en conjunto los elementos de las variables, en el orden que se especifica
 lista2<-list("Juan","Pedro","Andrea","Andes","Aymara","Mundo")
-names(lista2)<-c(1,2,3,4,5,6) ## Colocar nombres a los datos de una lista
-lista2<-list(nombre1="juan",nombre2="pedro") #Asigna inmediatamente los titulos a los datos de la lista
-str(lista2) ## Muestra  los datos de una lista de una manera mas ordenada
 
 ########################## Manera de realizar el swap sencillamente#################################
 
@@ -106,7 +109,33 @@ for (i in (1:(length(listaDeNumeros)-1))) {
     listaDeNumeros[c(i,i+1)]<-listaDeNumeros[c(i+1,i)]
   }}
 }
+ ################################# DATA FRAME ###########################################
+name<-c("Juan","Rafael","alejandra")
+age<-c(25,22,30)
+child<- c(TRUE,FALSE,FALSE)
+df<-data.frame(name,age,child) ###Crea la base de datos con los vectores especificos, cada uno es una columna
+names(df)<-c("Name","Age","Child","Height","Weight") ## se le entrega nombre a las columnas de la base de datos
+str(df) ##muestra los datos dentro de una estructura, sea cual sea
+df<-data.frame(name,age,child,Height,Weight ,stringsAsFactors = FALSE) ##Crea la base de datos y especifica que los datos sean guardados como son originalmente
+df[1,3] ##muestra la fila 1 columna 3, tal cual sucede con las matrices
+df[1,"age"] ## tambien pueden usarse los nombres de las columnas
+df[,2]## muestra todos los elementos de la columna 2 en formato vector
+df[c(1,3),c("age","name")] ##Entrega especificamente la observacion 1 y 3 de las columnas age y name
+df[2]# muestra todos los elementos de la columna 2 en formato DATAFRAME
+Height<-c(1.8,2.0,1.5)
+df$Height<- Height ## Se agrega una nueva columna o variable.
+Weight<-c(65,85,102)
+cbind(df,Weight) ##Tambien se usa para agregar columnas o variables
+Carlos<-data.frame(Name="Carlos",Age=28,Child=FALSE,Height=2.0,Weight=95,stringsAsFactors = FALSE)
+Cesar<-c("Cesar",22,FALSE,1.85,85)## Aqui todos es agregado como Factor lo cual no es bueno
+df<-rbind(df,Carlos) #Añade la observacion con los datos en orden
+df<-rbind(df,Cesar) #Tambien sirve para añadir observaciones
+sort(df$Height) #ordena de menor a mayor.
+order(df$Height) #Muestra el orden de mayor a menor segun la posicion en el DATAFRAME
 
+############################################### GRAPHS ###################################
 
-
-
+plot(log(df$Age))##Muestra un grafico de puntos donde index es el numero de observacion
+hist(sinhijos2$Age) ##Muestra el histograma de la variable
+Sinhijos<- df$Child == FALSE
+sinhijos2<- df[Sinhijos,] ##Muestra aquellos que cumplen cierta caracteristica

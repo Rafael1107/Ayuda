@@ -154,5 +154,8 @@ plot(base1$speed,base1$dist,
      lty= 2, #tipo de linea donde 1 es normal y de ahi hacia arriba varia
      pch= 3)
 par()## Muestra los parametros de los graficos activos y ademas permite asignar especificaciones
-par(mfcol=c(2,2))
-
+par(mfcol=c(2,2)) ## se asigna la especificacion que se muestren 4 graficos en vez de uno.  
+layout(base1) ## automaticamente acomoda en el espacio los gradicos que se desarrollen a continuacion
+plot(base1$rating,base1$complaints)
+base1_lm<-lm(base1$rating ~ base1$complaints)## Se crean los coheficientes de tendencia de las variables
+abline(coef(base1_lm), lwd=2) ## se agrega al grafico ya creado una linea de tendencia

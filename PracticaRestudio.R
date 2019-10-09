@@ -135,7 +135,24 @@ order(df$Height) #Muestra el orden de mayor a menor segun la posicion en el DATA
 
 ############################################### GRAPHS ###################################
 
-plot(log(df$Age))##Muestra un grafico de puntos donde index es el numero de observacion
+plot(base1$speed,base1$dist)##Muestra un grafico de puntos donde index es el numero de observacion
 hist(sinhijos2$Age) ##Muestra el histograma de la variable
 Sinhijos<- df$Child == FALSE
 sinhijos2<- df[Sinhijos,] ##Muestra aquellos que cumplen cierta caracteristica
+
+barplot(base1$Jul) ##Grafico de barras
+boxplot(df$Age) ## Grafico de puntos
+base1<- datasets::attitude
+plot(base1$speed,base1$dist,
+     xlab="Speed", # Eje Y
+     ylab="Distance", #Eje X
+     main= "Rate Speed vs Distance", ## Titulo
+     type="o", ## o para puntos y l para linea
+     col= "blue",## Color
+     col.main= "black",## Color del titulo
+     cex.axis=0.5, ##Tamaño de los datos mostrados en las axisas
+     lty= 2, #tipo de linea donde 1 es normal y de ahi hacia arriba varia
+     pch= 3)
+par()## Muestra los parametros de los graficos activos y ademas permite asignar especificaciones
+par(mfcol=c(2,2))
+

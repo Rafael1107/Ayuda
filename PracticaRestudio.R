@@ -159,3 +159,7 @@ layout(base1) ## automaticamente acomoda en el espacio los gradicos que se desar
 plot(base1$rating,base1$complaints)
 base1_lm<-lm(base1$rating ~ base1$complaints)## Se crean los coheficientes de tendencia de las variables
 abline(coef(base1_lm), lwd=2) ## se agrega al grafico ya creado una linea de tendencia
+orden<-order(base1$rating)
+lines(base1$rating[orden],base1$complaints[orden]) ## conecta todos los puntos con una linea en orden
+
+      

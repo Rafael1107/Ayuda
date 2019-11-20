@@ -162,4 +162,19 @@ abline(coef(base1_lm), lwd=2) ## se agrega al grafico ya creado una linea de ten
 orden<-order(base1$rating)
 lines(base1$rating[orden],base1$complaints[orden]) ## conecta todos los puntos con una linea en orden
 
-      
+######################### Manipulacion de Data###############################################
+
+########################################### READR ##############################
+install.packages("readr")##DIcho paquete facilita la descarga y visualizacion de datos
+library(readr)
+
+read_delim("datos.csv",delim =",", col_types = "c___d_d") ##Se extraun un archivos y es una manera de especificar el tipo de data y cuales son importantes y no importantes
+
+read_delim("datos.csv",delim =",", skip=2, n_max=20,
+           col_names = c("Date","Price","Volume"),
+           col_types = "c___d_d") ## Skip salta un dato y n_max establece el maximo de datos a usar.
+
+##################################### DATA TABLE #######################################
+install.packages("data.table")#Realiza la descarga de datos de una manera mas veloz
+library(data.table)
+fread("datos.csv", max=20)

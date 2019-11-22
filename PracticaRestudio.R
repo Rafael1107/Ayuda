@@ -227,9 +227,15 @@ read_delim("datos.txt",
 devtools::install_github("dtkaplan/statisticalModeling")
 install.packages("devtools")
 library(statisticalModeling)
+library(mosaic)
 mean(wage ~ sector, data=CPS85) ## Separanto el Suelod por sectores y calculando el promedio
 
 my_model<-lm(wage ~ exper + sector, data=CPS85)## Modelando
 wage_model<-lm(wage~ educ + sector + sex + exper, data=CPS85)##Modelando con datos 
+
 effect_size(wage_model,~educ)
 
+married_model<-glm(married=="Married"~educ*sector*sex + age ,data=CPS85,family=binomial)
+
+fmodel(married_model,~age+sex+sector+educ,
+       data=CPS85, type="response",educ= c(10,16)) ##Grafica los modelos

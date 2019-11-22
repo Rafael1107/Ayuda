@@ -1,5 +1,6 @@
+##############################################################################################
 ########################### BASICO ############################################
-
+##############################################################################################
 rm(list=ls()) #Limpia todo el environment
 rm(Variable) ##Borrar una variable especifica
 contenido <- c(2,5,6,9,8)
@@ -14,8 +15,10 @@ ganancias[2]
 contenido["Agua"] # Mostrar los datos segun el nombre de la fila o columna de una matriz
 contenido[c(1,2)] #mostrar los numeros en la posicion 1 y 2 
 contenido[1]
-############################ BASICO MATRICES #########################################
 
+##############################################################################################
+############################ BASICO MATRICES #########################################
+##############################################################################################
 matrix(ganancias,nrow=1) #crea una matriz con los datos de GANANCIA y colocalos en una fila
 matrix1<-cbind(ganancias,gastos) # crea una matriz con los datos de ganancia y gastos juntos en columnas(col).
 rbind(ganancias,gastos) #Crea una matriz con los datos de ganancia y gastos juntos en filas(rows)
@@ -27,7 +30,9 @@ matrix2<-matrix(sample(1:15,12),nrow=3)# llena MATRIX2 con un ejemplo del 1:15 c
 matrix2[1,4] #muestra el dato 1,4 donde 1 es fila y 4 es columna de MATRIX2
 nombres2<-c("dato1","dato2","dato3","dato4")
 
+##############################################################################################
 ################################# MATRICES  ##########################################
+##############################################################################################
 
 matrix2[1,] #muestra los datos de la fila(row) 1 de la MATRIX2 
 matrix2[,2]#Muestra los datos de la columna(col) 2 de la MTRIX2
@@ -40,7 +45,9 @@ matrix2-c(1,2,3)#al restar un conjunto de numeros se aplica reciclaje y se resta
 matrix2 * matrix2# multiplicacion de matrices es hecha numero por numero algebraicamente y no de la otra manera
 matrix2 * c(1,2,3)# multiplica la primera fila por 1 la segunda por dos y asi sucesivamente
 
+##############################################################################################
 ################################# FACTORS ##############################################
+##############################################################################################
 
 blood<-c("B","AB","O","A","O","O","A","B")
 blood_factor<-factor(blood)#Crea el factor BLOOD y muestra los niveles
@@ -53,7 +60,9 @@ tshirt<-c("M","L","S","S","L","M","L","M")
 tshirt_factor<-factor(tshirt,ordered=TRUE,levels=c("S","M","L"))#Crea el factor e inmediatamente le ingresa que uno es mayor que otro o el orden.
 tshirt_factor[1]<tshirt_factor[2]# probando si el orden fue realizado correctamente
 
+##############################################################################################
 ####################################### LISTAS ######################################################
+##############################################################################################
 
 listaDeNumeros <- list(2,5,6,2,1,5,6,10,11,20,15)# Crea una lista de numeros y pueden ser manipulados de una mejor manera
 listaDeNumeros[20]#Muestra el numero en la posicion 20 de la lista de numeros
@@ -76,8 +85,9 @@ Suma<-function(a,b){
 #despues simplemente se especifican los numeros de las variables para que te entrege un resultado
 Suma(4,4) ##Entrega el resultado en remplazar la primera variable por 4 y la segunda por 4
 
+##############################################################################################
 ############################## Ejercicios Lista #############################################
-
+##############################################################################################
 listaDeNumeros<-list(1:5)## Agrega en conjunto los elementos de las variables, en el orden que se especifica
 lista2<-list("Juan","Pedro","Andrea","Andes","Aymara","Mundo")
 
@@ -92,24 +102,32 @@ listaDeNumeros[4]<-apio ###manera de realizar el swap sencillamente
 listaDeNumeros[c(5,3)]<-listaDeNumeros[c(3,5)]
 
 ######################### For = para secuencias ###############################
+
 ##Buscando que un valor este en la lista
 listaDeNumeros<-list(5,4,3,2,1)
 encontrar<-7
 
-################################### Identificar si un elemento se enncuentra en una lista#############
+##############################################################################################
+################################### Identificar si un elemento se enncuentra en una lista #############
+##############################################################################################
 for (i in 1:length(listaDeNumeros)) {
   if(listaDeNumeros[i]==encontrar) {
     print("el elemento existe") 
   }
 }
- ################################# Ordenar de mayor a menor una vareable################################
+##############################################################################################
+################################# Ordenar de mayor a menor una vareable################################
+##############################################################################################
 for (u in 1:length(listaDeNumeros)){
 for (i in (1:(length(listaDeNumeros)-1))) {
   if (unlist(listaDeNumeros[i])>unlist(listaDeNumeros[i+1])){
     listaDeNumeros[c(i,i+1)]<-listaDeNumeros[c(i+1,i)]
   }}
 }
- ################################# DATA FRAME ###########################################
+##############################################################################################
+################################# DATA FRAME ###########################################
+##############################################################################################
+
 name<-c("Juan","Rafael","alejandra")
 age<-c(25,22,30)
 child<- c(TRUE,FALSE,FALSE)
@@ -133,7 +151,9 @@ df<-rbind(df,Cesar) #Tambien sirve para añadir observaciones
 sort(df$Height) #ordena de menor a mayor.
 order(df$Height) #Muestra el orden de mayor a menor segun la posicion en el DATAFRAME
 
+##############################################################################################
 ############################################### GRAPHS ###################################
+##############################################################################################
 
 plot(base1$speed,base1$dist)##Muestra un grafico de puntos donde index es el numero de observacion
 hist(sinhijos2$Age) ##Muestra el histograma de la variable
@@ -162,9 +182,12 @@ abline(coef(base1_lm), lwd=2) ## se agrega al grafico ya creado una linea de ten
 orden<-order(base1$rating)
 lines(base1$rating[orden],base1$complaints[orden]) ## conecta todos los puntos con una linea en orden
 
+##############################################################################################
 ######################### Manipulacion de Data###############################################
 
 ########################################### READR ##############################
+##############################################################################################
+
 install.packages("readr")##DIcho paquete facilita la descarga y visualizacion de datos
 library(readr)
 
@@ -174,7 +197,27 @@ read_delim("datos.csv",delim =",", skip=2, n_max=20,
            col_names = c("Date","Price","Volume"),
            col_types = "c___d_d") ## Skip salta un dato y n_max establece el maximo de datos a usar.
 
+##############################################################################################
 ##################################### DATA TABLE #######################################
+##############################################################################################
+
 install.packages("data.table")#Realiza la descarga de datos de una manera mas veloz
 library(data.table)
-fread("datos.csv", max=20)
+fread("datos.csv") # Manera veloz de obetener datos de diferentes tipos de formatos.
+
+read.table("datos.csv",
+           header=TRUE,
+           sep=",",
+           stringsAsFactors = FALSE)# Manera larga de realizarlo con CSV
+read.csv("datos.csv",
+         stringsAsFactors = FALSE) # Manera veloz de realizar el Header y Sep=","
+##############################################################################################
+########################################## Ahora en formato .TXT ###############################
+##############################################################################################
+read.table("datos.txt",
+           header=TRUE,
+          sep=",",
+          stringsAsFactors = FALSE)
+
+read_delim("datos.txt",
+           delim=",")

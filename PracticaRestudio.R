@@ -221,3 +221,15 @@ read.table("datos.txt",
 
 read_delim("datos.txt",
            delim=",")
+##############################################################################################
+##################################### Modelos Estadisticos####################################
+##############################################################################################
+devtools::install_github("dtkaplan/statisticalModeling")
+install.packages("devtools")
+library(statisticalModeling)
+mean(wage ~ sector, data=CPS85) ## Separanto el Suelod por sectores y calculando el promedio
+
+my_model<-lm(wage ~ exper + sector, data=CPS85)## Modelando
+wage_model<-lm(wage~ educ + sector + sex + exper, data=CPS85)##Modelando con datos 
+effect_size(wage_model,~educ)
+

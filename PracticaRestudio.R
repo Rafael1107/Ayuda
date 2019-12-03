@@ -225,13 +225,13 @@ read_delim("datos.txt",
 ##################################### Modelos Estadisticos####################################
 ##############################################################################################
 devtools::install_github("dtkaplan/statisticalModeling")
-install.packages("devtools")
+install.packages("devtools")st
 library(statisticalModeling)
 library(mosaic)
 mean(wage ~ sector, data=CPS85) ## Separanto el Suelod por sectores y calculando el promedio
 
-my_model<-lm(wage ~ exper + sector, data=CPS85)## Modelando
-wage_model<-lm(wage~ educ + sector + sex + exper, data=CPS85)##Modelando con datos 
+my_model<-lm(wage ~ exper + sector ,data=CPS85)## Modelando
+wage_model<-lm(wage~ educ + sector + sex + exper+ hispanic+ south+ race, data=CPS85)##Modelando con datos 
 
 effect_size(wage_model,~educ)
 
